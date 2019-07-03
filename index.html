@@ -42,14 +42,14 @@
   <script>
 
 			var toner = L.tileLayer.provider('Stamen.Toner'),
-			    voyager = L.tileLayer.provider('Thunderforest.MobileAtlas',{apikey:'37077b6bd662477e8686724b278cd3a2'});
+			    thunder = L.tileLayer.provider('Thunderforest.MobileAtlas',{apikey:'37077b6bd662477e8686724b278cd3a2'});
 			var map = L.map('map', {
 	    layers: [toner] // only add one!
     })
     .setView([38, -78], 7);
 			var baseLayers = {
 	"Stamen Toner": toner,
-	"Carto DB Voyager": voyager};
+	"Thunderforest Mobile Atlas": thunder};
 	L.control.layers(baseLayers).addTo(map);
 	var myIcon = L.icon({
     iconUrl: 'images/SVG/Asset 7.svg',
