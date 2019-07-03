@@ -42,7 +42,7 @@
   <script>
 
 			var toner = L.tileLayer.provider('Stamen.Toner'),
-			    voyager = L.tileLayer.provider('Thunderforest.MobileAtlas'),apikey: '<37077b6bd662477e8686724b278cd3a2>'
+			    voyager = L.tileLayer.provider(CartoDB.Voyager);
 			var map = L.map('map', {
 	    layers: [toner] // only add one!
     })
