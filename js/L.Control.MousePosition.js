@@ -1,11 +1,3 @@
-/* SHB, 2019 */
-
-//initialize function called when the script loads
-
- {
-	var map = L.map('map').setView([38, -78], 7);
-
-L.tileLayer.provider('Stamen.Toner').addTo(map);
 L.Control.MousePosition = L.Control.extend({
   options: {
     position: 'bottomleft',
@@ -54,46 +46,3 @@ L.Map.addInitHook(function () {
 L.control.mousePosition = function (options) {
     return new L.Control.MousePosition(options);
 };
-
-
-function processData(data) {
-		var timestamps = [2010,2011,2012,2013,2014,2015,2016,2017];
-		var min = Infinity;
-		var max = -Infinity;
-
-		for (var feature in data.features) {
-
-			var properties = data.features[feature].properties;
-
-			for (var attribute in properties) {
-
-				if ( attribute != ‘id’ &&
-				  attribute != ‘name’ &&
-				  attribute != ‘lat’ &&
-				  attribute != ‘lon’ ) {
-
-					if ( $.inArray(attribute,timestamps) === -1) {
-						timestamps.push(attribute);
-					}
-
-					if (properties[attribute] < min) {
-						min = properties[attribute];
-					}
-
-					if (properties[attribute] > max) {
-						max = properties[attribute];
-					}
-				}
-			}
-		}
-
-		return {
-			timestamps : timestamps,
-			min : min,
-			max : max
-		}
-	}
-};
-
-
-//call the initialize function when the document has loaded
